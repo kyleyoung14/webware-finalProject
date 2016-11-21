@@ -10,10 +10,10 @@ var server = http.createServer (function (req, res) {
   switch( uri.pathname ) {
     // Note the new case handling search
     case '/':
-      sendFile(res, 'description.txt', 'text/plain')
+      sendIndex(res)
       break
     case '/index.html':
-      sendFile(res, 'description.txt', 'text/plain')
+      sendIndex(res)
       break
     case '/README.md':
       sendFile(res, 'README.md', 'text/plain')
@@ -73,7 +73,7 @@ function sendIndex(res) {
   html = html + '</head>'
 
   html = html + '<body>'
-
+  html = html + '<h1>Final Project Description<h1>'
   html = html + '</body>'
   html = html + '</html>'
   
