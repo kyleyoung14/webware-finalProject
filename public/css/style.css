@@ -1,0 +1,20 @@
+body {background-color:aliceblue; 
+	color:gray;
+	font-family: 'Libre Baskerville', serif;
+	text-align: center;}
+
+h1 {font-family: 'Luckiest Guy', cursive;
+	font-size: 75;
+	color:steelblue;}
+
+h2 {color:steelblue;}
+
+.name {font-size: xx-large;}
+
+.resize:hover{max-width: 40%;
+			max-height: 40%;}
+
+.time {color:grey;
+	font-style: italic;}
+
+#movieList {list-style-type: none;}
