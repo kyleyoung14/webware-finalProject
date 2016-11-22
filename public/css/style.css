@@ -1,7 +1,7 @@
-body {background-color:aliceblue; 
+body { 
 	color:gray;
 	font-family: 'Libre Baskerville', serif;
-	text-align: center;}
+	text-align: left;}
 
 h1 {font-family: 'Luckiest Guy', cursive;
 	font-size: 75;
@@ -16,5 +16,3 @@ h2 {color:steelblue;}
 
 .time {color:grey;
 	font-style: italic;}
-
-#movieList {list-style-type: none;}

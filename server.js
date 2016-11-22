@@ -10,16 +10,22 @@ var server = http.createServer (function (req, res) {
   switch( uri.pathname ) {
     // Note the new case handling search
     case '/':
-      sendIndex(res)
+      sendFile(res, 'index.html', 'text/html')
       break
     case '/index.html':
-      sendIndex(res)
+      sendFile(res, 'index.html', 'text/html')
       break
     case '/README.md':
       sendFile(res, 'README.md', 'text/plain')
       break
     case '/readme.md':
       sendFile(res, 'README.md', 'text/plain')
+      break
+    case '/wordCloud.png':
+      sendFile(res, 'public/img/wordCloud.png', 'image/png')
+      break
+    case '/phraseTree.png':
+      sendFile(res, 'public/img/phraseTree.png', 'image/png')
       break
     case '/css/style.css':
       sendFile(res, 'public/css/style.css', 'text/css')
