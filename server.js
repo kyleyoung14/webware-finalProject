@@ -2,10 +2,40 @@ var http = require('http')
   , fs   = require('fs')
   , url  = require('url')
   , qs   = require('querystring')
-  , prequireort = 8080;
+  , path = require('path')
+  , cookie = require('cookie')
+  , port = 5000;
 
 var server = http.createServer (function (req, res) {
   var uri = url.parse(req.url, true)
+
+
+  var accounts = []
+
+  // set cookies
+  if(!req.headers.cookie){
+    console.log('Adding to what should be an empty cookie: ' + req.headers.cookie)
+    var inAccounts = true;
+    while(inAccounts){
+      inAccounts = false;
+      var randID = makeid();
+      for(var i = 0; i < accounts.length; i++){
+        if(accounts[i].user == randID){
+          inAccounts = true;
+          break
+        }
+      }
+    }
+
+
+    res.writeHead(200, {
+      'Set-Cookie': ['user=' + randID + '; Max-Age=60'],
+    });
+  }
+  else{
+    console.log('This is the filled cookie: ' + req.headers.cookie)
+  }
+
 //function sendIndex(res, movieList,timer, query, numRes)
   switch( uri.pathname ) {
     // Note the new case handling search
@@ -58,31 +88,14 @@ function sendFile(res, filename, contentType) {
 
 }
 
+function makeid()
+{
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-function sendIndex(res) {
-  var contentType = 'text/html'
-    , html = ''
+    for( var i=0; i < 5; i++ )
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
 
-  html = html + '<html>'
-
-  html = html + '<head>'
-  // You could add a CSS and/or js call here...
-  html = html + '<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">'
-
-  html = html + '<link rel="stylesheet" type="text/css" href="css/style.css">'
-
-  html = html + '<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">'
-
-  html = html + '<link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">'
-
-
-  html = html + '</head>'
-
-  html = html + '<body>'
-  html = html + '<h1>Final Project Description<h1>'
-  html = html + '</body>'
-  html = html + '</html>'
-  
-  res.writeHead(200, {'Content-type': contentType})
-  res.end(html, 'utf-8')
+    return text;
 }
+
