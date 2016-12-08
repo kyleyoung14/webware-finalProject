@@ -9,6 +9,7 @@
 		<title>Need To Pick A Good Title</title>
 	</head>
 	<body>
+		<script src="js/scripts.js"></script>
 		<h1>Need To Pick A Good Title</h1>
 		<nav role="navigation">
 			<ul class="nav nav-tabs">
@@ -30,21 +31,64 @@
 		<div id="wrap">
 		    <div id="left_col">
 		    	<p>File 1</p>
-		    	<button type="button" id="browse1">Browse</button>
+		    	<form action="/upload/doc" method="POST" onsubmit="return false">
+		    	<div style="height:0px;overflow:hidden">
+		    		<input type="file" name="inp_file1" id="inp_file1"/>
+		    	</div>
+		    	<div class="btn-group" role="group">
+		    		<button type="button" id="browse1" class="btn btn-success" onclick="chooseFile(1);">Browse</button>
+		    		<button type="button" id="submit1" class="btn btn-info" onclick="submitFile(1);">Submit</button>
+		    	</div>
 		    	<p>File 4</p>
-		    	<button type="button" id="browse4">Browse</button>
+		    	<form action="/upload/doc" method="POST" onsubmit="return false">
+		    	<div style="height:0px;overflow:hidden">
+		    		<input type="file" name="inp_file4" id="inp_file4"/>
+		    	</div>
+		    	<div class="btn-group" role="group">
+		    		<button type="button" id="browse4" class="btn btn-success" onclick="chooseFile(4);">Browse</button>
+		    		<button type="button" id="submit4" class="btn btn-info" onclick="submitFile(4);">Submit</button>
+		    	</div>
 		    </div>
 		    <div id="mid_col">
 		    	<p>File 2</p>
-		    	<button type="button" id="browse2">Browse</button>
+		    	<form action="/upload/doc" method="POST" onsubmit="return false">
+		    	<div style="height:0px;overflow:hidden">
+		    		<input type="file" name="inp_file2" id="inp_file2"/>
+		    	</div>
+		    	<div class="btn-group" role="group">
+		    		<button type="button" id="browse2" class="btn btn-success" onclick="chooseFile(2);">Browse</button>
+		    		<button type="button" id="submit2" class="btn btn-info" onclick="submitFile(2);">Submit</button>
+		    	</div>
 		    	<p>File 5</p>
-		    	<button type="button" id="browse5">Browse</button>
+		    	<form action="/upload/doc" method="POST" onsubmit="return false">
+		    	<div style="height:0px;overflow:hidden">
+		    		<input type="file" name="inp_file5" id="inp_file5"/>
+		    	</div>
+		    	<div class="btn-group" role="group">
+		    		<button type="button" id="browse5" class="btn btn-success" onclick="chooseFile(5);">Browse</button>
+		    		<button type="button" id="submit5" class="btn btn-info" onclick="submitFile(5);">Submit</button>
+		    	</div>
 		    </div>
 		    <div id="right_col">
 		    	<p>File 3</p>
-		    	<button type="button" id="browse3">Browse</button>
+		    	<form action="/upload/doc" method="POST" onsubmit="return false">
+		    	<div style="height:0px;overflow:hidden">
+		    		<input type="file" name="inp_file3" id="inp_file3"/>
+		    	</div>
+		    	<div class="btn-group" role="group">
+		    		<button type="button" id="browse3" class="btn btn-success" onclick="chooseFile(3);">Browse</button>
+		    		<button type="button" id="submit3" class="btn btn-info" onclick="submitFile(3);">Submit</button>
+		    	</div>
 		    	<p>File 6</p>
-		    	<button type="button" id="browse6">Browse</button>
+		    	<form action="/upload/doc" method="POST" onsubmit="return false">
+		    	<div style="height:0px;overflow:hidden">
+		    		<input type="file" name="inp_file6" id="inp_file6"/>
+		    	</div>
+		    	<div class="btn-group" role="group">
+		    		<button type="button" id="browse6" class="btn btn-success" onclick="chooseFile(6);">Browse</button>
+		    		<button type="button" id="submit6" class="btn btn-info" onclick="submitFile(6);">Submit</button>
+		    	</div>
 		    </div>
+		</div>
 	</body>
 </html>
