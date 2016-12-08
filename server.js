@@ -43,7 +43,10 @@ var server = http.createServer (function (req, res) {
       sendFile(res, 'index.html', 'text/html')
       break
     case '/index.html':
-      sendFile(res, 'index.html', 'text/html')
+      sendFile(res, 'wordcloud.html', 'text/html')
+      break
+    case '/wordcloud.html':
+      sendFile(res, 'wordcloud.html', 'text/html')
       break
     case '/README.md':
       sendFile(res, 'README.md', 'text/plain')
@@ -75,7 +78,7 @@ var server = http.createServer (function (req, res) {
 
 })
 
-server.listen(process.env.PORT || port)
+server.listen(process.env.PORT || 8080)
 console.log('listening on 8080')
 
 function sendFile(res, filename, contentType) {
