@@ -1,7 +1,11 @@
 body { 
 	color:gray;
 	font-family: 'PT Sans', sans-serif;
-	text-align: left;}
+	text-align: left;
+	background-image: url("/back1.jpg");
+	background-attachment: fixed;
+	background-size: cover;
+}
 
 h1 {font-family: 'Oranienbaum', serif;
 	font-size: 75;
@@ -9,11 +13,27 @@ h1 {font-family: 'Oranienbaum', serif;
 
 h2 {color:steelblue;}
 
-.name {font-size: xx-large;}
+#wrap {
+   width:100%;
+   margin:0 auto;
+}
+#left_col {
+   float:left;
+   position: relative;
+   text-align: center;
+   width:33%;
+}
 
-.resize:hover{max-width: 40%;
-			max-height: 40%;}
-
-.time {color:grey;
-	font-style: italic;}
+#mid_col {
+	display: inline-block;
+	position: relative;
+    text-align: center;
+	width:34%;
+}
+#right_col {
+   float:right;
+   position: relative;
+   text-align: center;
+   width:33%;
+}
 

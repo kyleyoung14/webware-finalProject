@@ -13,28 +13,28 @@ var server = http.createServer (function (req, res) {
   var accounts = []
 
   // set cookies
-  if(!req.headers.cookie){
-    console.log('Adding to what should be an empty cookie: ' + req.headers.cookie)
-    var inAccounts = true;
-    while(inAccounts){
-      inAccounts = false;
-      var randID = makeid();
-      for(var i = 0; i < accounts.length; i++){
-        if(accounts[i].user == randID){
-          inAccounts = true;
-          break
-        }
-      }
-    }
+  // if(!req.headers.cookie){
+  //   console.log('Adding to what should be an empty cookie: ' + req.headers.cookie)
+  //   var inAccounts = true;
+  //   while(inAccounts){
+  //     inAccounts = false;
+  //     var randID = makeid();
+  //     for(var i = 0; i < accounts.length; i++){
+  //       if(accounts[i].user == randID){
+  //         inAccounts = true;
+  //         break
+  //       }
+  //     }
+  //   }
 
 
-    res.writeHead(200, {
-      'Set-Cookie': ['user=' + randID + '; Max-Age=60'],
-    });
-  }
-  else{
-    console.log('This is the filled cookie: ' + req.headers.cookie)
-  }
+  //   res.writeHead(200, {
+  //     'Set-Cookie': ['user=' + randID + '; Max-Age=60'],
+  //   });
+  // }
+  // else{
+  //   console.log('This is the filled cookie: ' + req.headers.cookie)
+  // }
 
 //function sendIndex(res, movieList,timer, query, numRes)
   switch( uri.pathname ) {
@@ -65,6 +65,9 @@ var server = http.createServer (function (req, res) {
       break
     case '/phraseTree.png':
       sendFile(res, 'public/img/phraseTree.png', 'image/png')
+      break
+    case '/back1.jpg':
+      sendFile(res, 'public/img/back1.jpg', 'image/jpg')
       break
     case '/css/style.css':
       sendFile(res, 'public/css/style.css', 'text/css')
