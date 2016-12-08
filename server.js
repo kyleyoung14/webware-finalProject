@@ -13,7 +13,7 @@ var server = http.createServer (function (req, res) {
       sendFile(res, 'index.html', 'text/html')
       break
     case '/index.html':
-      sendFile(res, 'wordcloud.html', 'text/html')
+      sendFile(res, 'index.html', 'text/html')
       break
     case '/wordcloud.html':
       sendFile(res, 'wordcloud.html', 'text/html')
@@ -38,6 +38,9 @@ var server = http.createServer (function (req, res) {
       break
     case '/css/bootstrap.min.css.map':
       sendFile(res, 'public/css/bootstrap.min.css.map', 'text/css')
+      break
+    case '/css/simple-sidebar.css':
+      sendFile(res, 'public/css/simple-sidebar.css', 'text/css')
       break
     case '/js/scripts.js':
       sendFile(res, 'public/js/scripts.js', 'text/javascript')
