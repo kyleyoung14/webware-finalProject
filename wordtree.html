@@ -8,6 +8,7 @@
 	    <link href="https://fonts.googleapis.com/css?family=Oranienbaum|PT+Sans" rel="stylesheet">
 	    <title>Need To Pick A Good Title</title>
 	</head>
+
 	<body>
 		<h1>Need To Pick A Good Title</h1>
 		<nav role="navigation">
@@ -26,5 +27,102 @@
 				</li>
 			</ul>
 		</nav>
+
+		<!-- SIDE BAR -->
+	    <ul class="FileBar">
+	        <li class="sidebar-brand">
+	            <a href="#"> File Select </a>
+	        </li>
+	        <li>
+	            <a href="#"> File 1 </a>
+	        </li>
+	        <li>
+	            <a href="#"> File 2 </a>
+	        </li>
+	        <li>
+	            <a href="#"> File 3 </a>
+	        </li>
+	        <li>
+	            <a href="#"> File 4 </a>
+	        </li>
+	        <li>
+	            <a href="#"> File 5 </a>
+	        </li>
+	        <li>
+	            <a href="#"> File 6 </a>
+	        </li>
+	    </ul>
+
+	    <div id="PageContent">
+	    	<div id="PhraseTree">
+	    	</div>
+	    </div>
+
 	</body>
 </html>
+
+
+<script>
+
+var Node = function(data,parent,children) {
+	this.data = data;
+	this.parent = parent;
+	this.children = children;
+
+	Node.prototype.addChild = function(Node){
+		this.children.push(Node);
+		Node.parent.push(data);
+	}
+}
+
+var DisplayTree = function(Node){
+	console.log(Node.data);
+	Node.children.forEach(function(el){
+		DisplayTree(el);	
+	})
+	var TreeDisplay = "";
+	TreeDisplay = "<div>" + Node.data;
+	TreeDisplay = TreeDisplay + "<div>" + Node.children.forEach(function(el){
+		DisplayTree(el); + "</div>";	
+	})
+	TreeDisplay = TreeDisplay + "</div>";
+	return TreeDisplay;
+}
+
+var Grandma = new Node("Grandma",null, []);
+var David = new Node("David", [], []);
+	var Jen = new Node("Jen", [], []);
+	var Chris = new Node("Chris", [], []);
+	var Kara = new Node("Kara", [], []);
+	var Lauren = new Node("Lauren", [], []);
+var Donna = new Node("Donna", [], []);
+var Linda = new Node("Linda", [], []);
+	var Rebecca = new Node("Rebecca", [], []);
+	var Elizabeth = new Node("Elizabeth", [], []);
+var Sue = new Node("Sue", [], []);
+	var Matt = new Node("Matt", [], []);
+	var Brittany = new Node("Brittany", [], []);
+	var Megan = new Node("Megan", [], []);
+var Karen = new Node("Karen", [], []);
+	var Morgan = new Node("Morgan", [], []);
+
+Grandma.addChild(David);
+	David.addChild(Jen);
+	David.addChild(Chris);
+	David.addChild(Lauren);
+	David.addChild(Kara);
+Grandma.addChild(Donna);
+Grandma.addChild(Linda);
+	Linda.addChild(Rebecca);
+	Linda.addChild(Elizabeth);
+Grandma.addChild(Sue);
+	Sue.addChild(Matt);
+	Sue.addChild(Brittany);
+	Sue.addChild(Megan);
+Grandma.addChild(Karen);
+	Karen.addChild(Morgan);
+
+DisplayTree(Grandma);
+document.getElementById(PhraseTree).innerHTML = TreeDisplay(Grandma);
+
+</script>
