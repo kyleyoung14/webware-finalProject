@@ -46,7 +46,7 @@ var server = http.createServer (function (req, res) {
       sendFile(res, 'main.html', 'text/html')
       break
     case '/wordcloud.html':
-      sendFile(res, 'wordcloud.html', 'text/html')
+      sendFile(res, 'provided-wordcloud.html', 'text/html')
       break
     case '/wordtree.html':
       sendFile(res, 'wordtree.html', 'text/html')
