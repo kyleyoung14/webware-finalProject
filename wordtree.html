@@ -53,8 +53,9 @@
 	        </li>
 	    </ul>
 
-	    <div id="PageContent">
+	    <div class="PageContent">
 	    	<div id="PhraseTree">
+	    		here is some html
 	    	</div>
 	    </div>
 
@@ -76,16 +77,16 @@ var Node = function(data,parent,children) {
 }
 
 var DisplayTree = function(Node){
-	console.log(Node.data);
-	Node.children.forEach(function(el){
-		DisplayTree(el);	
-	})
-	var TreeDisplay = "";
-	TreeDisplay = "<div>" + Node.data;
-	TreeDisplay = TreeDisplay + "<div>" + Node.children.forEach(function(el){
-		DisplayTree(el); + "</div>";	
-	})
+	var TreeDisplay = "<div class=" + "Tree" + ">" + Node.data;
+
+	if(Node.children.length != 0){
+		TreeDisplay = TreeDisplay + "<br>";
+		for( var i = 0; i < Node.children.length; i++){
+			TreeDisplay = TreeDisplay + DisplayTree(Node.children[i]);
+		}
+	}
 	TreeDisplay = TreeDisplay + "</div>";
+	//console.log(TreeDisplay);
 	return TreeDisplay;
 }
 
@@ -122,7 +123,10 @@ Grandma.addChild(Sue);
 Grandma.addChild(Karen);
 	Karen.addChild(Morgan);
 
-DisplayTree(Grandma);
-document.getElementById(PhraseTree).innerHTML = TreeDisplay(Grandma);
+
+document.getElementById("PhraseTree").innerHTML = DisplayTree(Grandma);
+console.log(DisplayTree(Grandma));
+
+
 
 </script>
