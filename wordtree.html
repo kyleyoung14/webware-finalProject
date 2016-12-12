@@ -77,8 +77,14 @@ var Node = function(data,parent,children) {
 }
 
 var DisplayTree = function(Node){
-	var TreeDisplay = "<div class=" + "Tree" + ">" + Node.data;
-
+	var TreeDisplay = "";
+	console.log(Node.parent);
+	if(Node.parent == null){
+		TreeDisplay = "<div class=" + "root" + ">" + Node.data;
+	}
+	else{
+		TreeDisplay ="<div class="+"Tree"+">"+"<div class="+"littleLine"+"></div>"+Node.data;	
+	}
 	if(Node.children.length != 0){
 		TreeDisplay = TreeDisplay + "<br>";
 		for( var i = 0; i < Node.children.length; i++){

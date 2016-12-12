@@ -81,21 +81,34 @@ h2 {color:steelblue;}
 /*End FileBar*/
 
 .PageContent{
+	margin-top: 10px;
 	margin-left: 150px;
-	width: 100%;
 	margin-color: red;
 }
 
 #PhraseTree{
-	width: 100%;
-	height: 30px;
-	background-color: blue;
 	margin: 0 auto;
 }
 
-.Tree {
-	float: left;
-	padding: 3px;
-	margin: auto;
+#PhraseTree > .root{
+	margin: 0 auto;
 	text-align: center;
+
+}
+
+.Tree {
+	width: auto;
+	margin: 0 auto;
+	display: inline-block;
+	text-align: center;
+	border-top: 2px solid black;
+	vertical-align: top;
+	padding: 10px;
+	padding-top: 0px;
+}
+.Tree > .littleLine{
+	width: 2px;
+	height: 5px;
+	background-color: black;
+	margin: auto;
 }
