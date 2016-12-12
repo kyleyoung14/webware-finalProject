@@ -112,3 +112,8 @@ h2 {color:steelblue;}
 	background-color: black;
 	margin: auto;
 }
+
+.uploadedImage {
+  width:100px;
+  height:100px;
+}

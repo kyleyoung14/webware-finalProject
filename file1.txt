@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>About Kyle</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
+
+  </head>
+  <body>
+    <nav role="navigation">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link fencing" href="/fencing.html">Fencers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link about author" href="/index.html">About Author</a>
+        </li>
+      </ul>
+    </nav>
+    <h1>Information about Kyle Young</h1>
+    <p>
+      Class of 2017
+    </p>
+    <p>
+      Robotics Engineering and Computer Science
+    </p>
+    <p>
+      Previous CS Courses:
+    </p>
+    <ul>
+      <li>CS 1101 - Intro to CS</li>
+      <li>CS 2022 - Discrete Math</li>
+      <li>CS 2102 - Object Oriented</li>
+      <li>CS 2223 - Algorithms</li>
+      <li>CS 2303 - Systems</li>
+      <li>CS 3013 - Operating Systems</li>
+      <li>CS 3043 - Social Implications</li>
+      <li>CS 3133 - Foundations of CS</li>
+      <li>CS 3431 - Database Systems</li>
+      <li>CS 3516 - Computer Networks</li>
+      <li>CS 3733 - Software Engineering</li>
+      <li>CS 4341 - Artificial Intelligence</li>
+    </ul>
+    <h2>Experience</h2>
+    <p>
+      Working experience:
+    </p>
+    <ul>
+      <li>Applied Physical Sciences</li>
+      <li>WPI</li>
+    </ul>
+    <p>
+      Language Experience:
+    </p>
+    <ul>
+      <li>HTML - none</li>
+      <li>CSS - none</li>
+      <li>Java - some</li>
+      <li>JavaScript - none</li>
+      <li>Ruby - none</li>
+      <li>Python - a lot</li>
+      <li>unit testing - none</li>
+    </ul>
+  </body>
+</html>
