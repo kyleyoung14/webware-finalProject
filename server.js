@@ -78,6 +78,24 @@ var server = http.createServer (function (req, res) {
     case '/upload/file1':
       saveFile(req, res, 1)
       break
+    case '/file1.txt':
+      sendFile(res, 'file1.txt', 'text/plain')
+      break
+    case '/file2.txt':
+      sendFile(res, 'file2.txt', 'text/plain')
+      break
+    case '/file3.txt':
+      sendFile(res, 'file3.txt', 'text/plain')
+      break
+    case '/file4.txt':
+      sendFile(res, 'file4.txt', 'text/plain')
+      break
+    case '/file5.txt':
+      sendFile(res, 'file5.txt', 'text/plain')
+      break
+    case '/file6.txt':
+      sendFile(res, 'file6.txt', 'text/plain')
+      break
     case '/upload/file2':
       saveFile(req, res, 2)
       break
@@ -99,6 +117,12 @@ var server = http.createServer (function (req, res) {
     case '/css/style.css':
       sendFile(res, 'public/css/style.css', 'text/css')
       break
+    case '/css/bootstrap.css':
+      sendFile(res, 'public/css/bootstrap.css', 'text/css')
+      break
+    case '/css/bootstrap.css.map':
+      sendFile(res, 'public/css/bootstrap.css.map', 'text/css')
+      break
     case '/css/bootstrap.min.css':
       sendFile(res, 'public/css/bootstrap.min.css', 'text/css')
       break
@@ -110,6 +134,9 @@ var server = http.createServer (function (req, res) {
       break
     case '/js/scripts.js':
       sendFile(res, 'public/js/scripts.js', 'text/javascript')
+      break
+    case '/js/bootstrap.min.js':
+      sendFile(res, 'public/js/bootstrap.min.js', 'text/javascript')
       break
     default:
       res.end('404 not found')
