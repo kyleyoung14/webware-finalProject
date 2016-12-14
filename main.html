@@ -9,27 +9,32 @@
 		<title>Need To Pick A Good Title</title>
 	</head>
 	<body>
-		<script src="js/scripts.js"></script>
-		<h1>Need To Pick A Good Title</h1>
-		<nav role="navigation">
-			<ul class="nav nav-tabs">
-				<li class="nav-item active">
-					<a class="nav-link" href="/main.html">File Management</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/wordcloud.html">Wordcloud</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/wordtree.html">Word Tree</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/docMetrics.html">Metrics</a>
-				</li>
-			</ul>
+		<nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	        	<span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+	        </button>
+	        <a class="navbar-brand" href="#">Need To Pick A Good Title</a>
+		    </div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="/main.html">File Management</a></li>
+						<li><a href="/wordcloud.html">Wordcloud</a></li>
+						<li><a href="/wordtree.html">Word Tree</a></li>
+						<li><a href="/docMetrics.html">Metrics</a></li>
+					</ul>
+				</div>
+			</div>
 		</nav>
 		<p>Submit a new file below! We've provided you some so that you can get started.</p>
-		<div id="wrap">
-		    <div id="left_col">
+		<div class="container-fluid" style="text-align: center">
+      <div class="row">
+		    <!-- <div id="left_col"> -->
+		    <div class="col-xs-6 col-sm-4">
 		    	<h2>File 1</h2>
 		    	<img src="" class="uploadedImage" id="img1">
 		    	<form action="/upload/img1" method="POST" onsubmit="return false">
@@ -52,7 +57,8 @@
 		    		<button type="button" id="submit4" class="btn btn-info sub" onclick="submitFile(4);">Submit</button>
 		    	</div>
 		    </div>
-		    <div id="mid_col">
+		    <!-- <div id="mid_col"> -->
+		    <div class="col-xs-6 col-sm-4">
 		    	<h2>File 2</h2>
 		    	<img src="" class="uploadedImage" id="img2">
 		    	<form action="/upload/doc" method="POST" onsubmit="return false">
@@ -75,7 +81,8 @@
 		    		<button type="button" id="submit5" class="btn btn-info sub" onclick="submitFile(5);">Submit</button>
 		    	</div>
 		    </div>
-		    <div id="right_col">
+		    <!-- <div id="right_col"> -->
+		    <div class="col-xs-6 col-sm-4">
 		    	<h2>File 3</h2>
 		    	<img src="" class="uploadedImage" id="img3">
 		    	<form action="/upload/doc" method="POST" onsubmit="return false">
@@ -98,7 +105,11 @@
 		    		<button type="button" id="submit6" class="btn btn-info sub" onclick="submitFile(6);">Submit</button>
 		    	</div>
 		    </div>
+		  </div>
 		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
 		<script>
 			// initSubmit()
 			existingFiles()
