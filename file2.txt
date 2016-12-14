@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>CS4241 Assignment 2</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
+
+</head>
+<style>
+body {
+	font-family: 'Libre Baskerville', serif;
+}
+</style>
+<body>
+	<nav role="navigation">
+		<ul class="nav nav-tabs">
+			<li class="nav-item">
+				<a class="nav-link fencing" href="/fencing.html">Fencers</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link about author" href="/index.html">About Author</a>
+			</li>
+		</ul>
+	</nav>
+	<h1>
+		Some of the Best Fencers Around
+	</h1>
+	<div>
+		<table class="table">
+			<tr class="fancy">
+				<th>Name</th>
+				<th>Gender</th>
+				<th>Country</th>
+				<th>Weapon</th>
+				<th>Current World Ranking</th>
+			</tr>
+			<tr class="fancy">
+				<td class="fencer"><a href="#fencer1">Lee Kiefer</a></td>
+				<td>Woman</td>
+				<td>USA</td>
+				<td>Foil</td>
+				<td>3</td>
+			</tr>
+			<tr class="fancy">
+				<td class="fencer"><a href="#fencer2">Sofya Velikaya</a></td>
+				<td>Woman</td>
+				<td>Rusia</td>
+				<td>Saber</td>
+				<td>1</td>
+			</tr>
+			<tr class="fancy">
+				<td class="fencer"><a href="#fencer3">Sangyoung Park</a></td>
+				<td>Man</td>
+				<td>Korea</td>
+				<td>Epee</td>
+				<td>3</td>
+			</tr>
+			<tr class="fancy fav">
+				<td class="fencer"><a href="#fencer4">Race Imboden</a></td>
+			    <td>Man</td>
+			    <td>USA</td>
+			    <td>Foil</td>
+			    <td>7</td>
+			</tr>
+			<tr class="fancy">
+				<td class="fencer"><a href="#fencer5">Emese Szasz</a></td>
+			    <td>Woman</td>
+			    <td>Hungary</td>
+			    <td>Epee</td>
+			    <td>2</td>
+			</tr>
+			<tr class="fancy">
+				<td class="fencer"><a href="#fencer6">Junghwan Kim</a></td>
+			    <td>Man</td>
+			    <td>Korea</td>
+			    <td>Saber</td>
+			    <td>1</td>
+			</tr>
+		</table>
+	</div>
+	<ul id="fencerList">
+		<a name="fencer1"></a>
+		<li class="fencer listName"><span class="name">Lee Kiefer</span><p></p>
+			<img class="resize" src="img/lee_kiefer.jpg" alt="Picture of Lee Kiefer">
+			<p>World Cup: 1 <span class="gold">Gold</span>, 1 <span class="silver">Silver</span>, 2 <span class="bronze">Bronze</span></p>
+			<p>World Championship: 1 <span class="bronze">Bronze</span></p>
+			<p>Zone Championships: 7 <span class="gold">Gold</span></p>
+			<p>Grand Prix: 2 <span class="silver">Silver</span></p>
+		</li>
+		<a name="fencer2"></a>
+		<li class="fencer listName"><span class="name">Sofya Velikaya</span><p></p>
+			<img class="resize" src="img/Sofya_Velikaya.jpg" alt="Picture of Sofya Velikaya">
+			<p>World Cup: 6 <span class="gold">Gold</span>, 3 <span class="silver">Silver</span>, 5 <span class="bronze">Bronze</span></p>
+			<p>World Championship: 2 <span class="gold">Gold</span>, 1 <span class="silver">Silver</span>, 1 <span class="bronze">Bronze</span></p>
+			<p>Zone Championships: 3 <span class="gold">Gold</span>, 2 <span class="silver">Silver</span></p>
+			<p>Grand Prix: 4 <span class="gold">Gold</span>, 7 <span class="silver">Silver</span>, 10 <span class="bronze">Bronze</span></p>
+			<p>Olympic Games: 2 <span class="silver">Silver</span></p>
+		</li>
+		<a name="fencer3"></a>
+		<li class ="fencer listName"><span class="name">Sangyoung Park</span><p></p>
+			<img class="resize" src="img/sangyoung_park.jpg" alt="Picture of Sangyoung Park">
+			<p>World Cup: 1 <span class="bronze">Bronze</span></p>
+			<p>Zone Championships: 1 <span class="silver">Silver</span></p>
+			<p>Grand Prix: 2 <span class="gold">Gold</span></p>
+			<p>Olympic Games: 1 <span class="gold">Gold</span></p>
+		</li>
+		<a name="fencer4"></a>
+		<li class="fencer listName fav"><span class="name">Race Imboden</span><p></p>
+			<img class="resize" src="img/race_imboden.jpg" alt="Picture of Race Imboden">
+			<p>World Cup: 5 <span class="gold">Gold</span>, 1 <span class="silver">Silver</span>, 2 <span class="bronze">Bronze</span></p>
+			<p>Zone Championships: 3 <span class="gold">Gold</span>, 1 <span class="silver">Silver</span>, 1 <span class="bronze">Bronze</span></p>
+			<p>Grand Prix: 4 <span class="bronze">Bronze</span></p>
+		</li>
+		<a name="fencer5"></a>
+		<li class="fencer listName"><span class="name">Emese Szasz</span><p></p>
+			<img class="resize" src="img/Emese_Szasz.jpg" alt="Picture of Emese Szasz">
+			<p>World Cup: 7 <span class="gold">Gold</span>, 5 <span class="silver">Silver</span>, 4 <span class="bronze">Bronze</span></p>
+			<p>World Championship: 1 <span class="silver">Silver</span>, 2 <span class="bronze">Bronze</span></p>
+			<p>Zone Championships: 3 <span class="bronze">Bronze</span></p>
+			<p>Grand Prix: 3 <span class="gold">Gold</span>, 5 <span class="silver">Silver</span>, 7 <span class="bronze">Bronze</span></p>
+			<p>Olympic Games: 1 <span class="gold">Gold</span></p>
+			<p>Satellite: 1 <span class="gold">Gold</span></p>
+		</li>
+		<a name="fencer6"></a>
+		<li class="fencer listName"><span class="name">Junghwan Kim</span><p></p>
+			<img class="resize" src="img/junghwan_kim.jpg" alt="Picture of Junghwan Kim">
+			<p>World Cup: 2 <span class="gold">Gold</span>, 4 <span class="silver">Silver</span>, 3 <span class="bronze">Bronze</span></p>
+			<p>Zone Championships: 2 <span class="gold">Gold</span>, 1 <span class="silver">Silver</span>, 2 <span class="bronze">Bronze</span></p>
+			<p>Grand Prix: 3 <span class="gold">Gold</span>, 2 <span class="bronze">Bronze</span></p>
+			<p>Olympic Games: 1 <span class="bronze">Bronze</span></p>
+		</li>
+	</ul>
+</body>
+</html>

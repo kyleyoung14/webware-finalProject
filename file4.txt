@@ -1,0 +1,30 @@
+
+Team Member Name: Kyle Young
+Previous Week Date: 
+
+What did you plan to accomplish this past week?
+I planned to go to the lab after our meeting on Tuesday and test the code on the pixhawk attached to the drone. After that was working, my main focus was going to be on writing and editing our paper for the term. That is one of my strong suits, so I figured I would be able to get a lot done.
+
+What did you accomplish? Be specific and concise
+When I went to the lab, I was able to get all of the propellers off of the drone after a lot of struggle. I then plugged the battery into it and attempted to connect the Pixhawk to Mission Planner. This worked, so we tried calibrating the compass. That proved to be very difficult with only two of us since my computer was attached to the Pixhawk so we had to stop. I then tried getting the code running with the drone. Although all of the clients and servers were running and it connected to the Pixhawk successfully, the drone was not armed, likely because we didn�t have a GPS signal, so it would not allow me to run the rest of the code. I stopped there and decided I would ask for you to show us how to properly prepare the drone for launch sometime.
+
+I also worked with the GUI and the Xbees this week. I took this over from John since I have more background with HTML and Javascript. I was able to set up a server that can send messages from on Xbee to the other when I click one of the buttons in the GUI. The server then listens for the other Xbee�s response and will resend the data if necessary. 
+
+After I got that working, I began to write my part for the report. I have contributed to a few sections and will be adding more after I send this to you. 
+
+What problems did you run into last week?
+I had some issues getting the drone set up.
+
+How did you solve/work around these problems?
+I did what I could with it and then moved on to other work that I had. I figured I could ask you to show all of us how to properly set up the drone for flying sometime.
+
+What do you plan to do for this upcoming week? Be Specific and Clear. 
+This week I will be solely dedicated to writing and editing our report.
+
+Fire Containment Drone MQP
+Professor Michalson 
+Weekly Status Report by Team Member 
+
+Please submit(email) this form to Professor Michalson by SUN C.O.B for the following week
+Keep a record for yourself to hold yourself accountable during the week. 
+
