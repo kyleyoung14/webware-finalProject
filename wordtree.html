@@ -96,6 +96,19 @@ var DisplayTree = function(Node){
 	return TreeDisplay;
 }
 
+var BuildTree = function(Txt, root){
+	Txt = Txt.toUpperCase();
+	var root = new Node(root.value,null,[]);
+	var sentences = Txt.split(".")
+	console.log(sentences);
+	for(var i = 0; i < sentences.length; i++){
+		if(in sentence){
+			every word after instance is sequential subnode
+		}
+	}
+
+}
+
 var Grandma = new Node("Grandma",null, []);
 var David = new Node("David", [], []);
 	var Jen = new Node("Jen", [], []);
@@ -129,9 +142,14 @@ Grandma.addChild(Sue);
 Grandma.addChild(Karen);
 	Karen.addChild(Morgan);
 
+var TextyText = "These are awesome words. Words with other words that follow them. There are words here and there are words here. Words with stuff and words without stuff.";
+var root = "words";
 
-document.getElementById("PhraseTree").innerHTML = DisplayTree(Grandma);
-console.log(DisplayTree(Grandma));
+//document.getElementById("PhraseTree").innerHTML = DisplayTree(Grandma);
+//console.log(DisplayTree(Grandma));
+
+BuildTree(TextyText, root);
+
 
 
 
