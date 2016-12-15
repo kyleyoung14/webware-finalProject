@@ -13,14 +13,19 @@
 		<nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-			        	<span class="sr-only">Toggle navigation</span>
-		            <span class="icon-bar"></span>
-		            <span class="icon-bar"></span>
-		            <span class="icon-bar"></span>
-			        </button>
-			        <a class="navbar-brand" href="#">Need To Pick A Good Title</a>
-			    </div>
+					<!-- <p class="pull-left visible-xs"> -->
+          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#sidebar" aria-expanded="false" aria-controls="navbar"><i>Files</i>
+          	<span class="sr-only">Toggle navigation</span>
+          </button>
+          <!-- </p> -->
+					<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	        	<span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+	        </button>
+	        <a class="navbar-brand" href="#">Need To Pick A Good Title</a>
+		    </div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="/main.html">File Management</a></li>
@@ -29,6 +34,16 @@
 						<li><a href="/docMetrics.html">Metrics</a></li>
 					</ul>
 				</div>
+				<div class="navbar-collapse collapse" id="sidebar">
+		      <ul class="nav navbar-nav navbar-right" id="hideSide">
+		        <li><a href="#file1.txt" class="fileSelector">File 1</a></li>
+		        <li><a href="#file2.txt" class="fileSelector">File 2</a></li>
+		        <li><a href="#file3.txt" class="fileSelector">File 3</a></li>
+		        <li><a href="#file4.txt" class="fileSelector">File 4</a></li>
+		        <li><a href="#file5.txt" class="fileSelector">File 5</a></li>
+		        <li><a href="#file6.txt" class="fileSelector">File 6</a></li>
+		      </ul>
+		    </div>
 			</div>
 		</nav>
 

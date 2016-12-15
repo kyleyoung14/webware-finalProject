@@ -152,6 +152,10 @@ function removeClass(el, className) {
   }
 }
 
+$('#offcanvasleft').click(function() {
+  $('.row-offcanvas-left').toggleClass('active');
+});
+
 
 
 
