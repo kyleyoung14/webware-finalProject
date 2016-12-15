@@ -174,12 +174,26 @@ h2 {color:steelblue;}
 }
 
 
+#mets {
+  float:right;
+}
 #docMets {
-  height:200px;
+  height:150px;
   width:170px;
   background-color: green;
   border-radius: 10px;
-  right: 0px;
+  padding:1em;
+  /*position: absolute;*/
+  float: right;
+  color: white;
+}
+
+#wordMets {
+  height:150px;
+  width:170px;
+  background-color: #0F55B2;
+  border-radius: 10px;
+  padding:1em;
   /*position: absolute;*/
   float: right;
   color: white;
@@ -187,5 +201,9 @@ h2 {color:steelblue;}
 
 .mainMet {
   color:black;
+}
+
+.metLabel {
+  font-weight: bold;
 }
 

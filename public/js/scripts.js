@@ -83,6 +83,7 @@ function editFileMets(text){
 	// console.log(text)
 	var wrdCnt = document.getElementById('wordCount')
 	var words = text.split(/\s+/)
+	var spanWords = words
 	words = words.filter(function(e){return e !== '-' && e !== '--' && e !== '...' && e !== ';' && e !== '='})
 	console.log(words)
 	wrdCnt.innerText = ''
@@ -114,7 +115,20 @@ function displayFile( event ){
 			doc.innerText = ''
 
 			doc.innerText = fileText
-			editFileMets(fileText)
+			if(fileText == ''){
+				doc.innerText = ''
+				doc.innerText = 'You have not uploaded that file yet!'
+				var wrdCnt = document.getElementById('wordCount')
+				var sntCnt = document.getElementById('sentCount')
+				var com = document.getElementById('commonWord')
+
+				wrdCnt.innerText = ''
+				sntCnt.innerText = ''
+				com.innerText = ''
+			}
+			else{
+				editFileMets(fileText)
+			}
 		}
 
 		var oReq = new XMLHttpRequest()
@@ -126,6 +140,13 @@ function displayFile( event ){
 	else{
 		doc.innerText = ''
 		doc.innerText = 'Please select a file on the left to analyze!'
+		var wrdCnt = document.getElementById('wordCount')
+		var sntCnt = document.getElementById('sentCount')
+		var com = document.getElementById('commonWord')
+
+		wrdCnt.innerText = ''
+		sntCnt.innerText = ''
+		com.innerText = ''
 	}
 	
 }
@@ -152,10 +173,76 @@ function removeClass(el, className) {
   }
 }
 
-$('#offcanvasleft').click(function() {
-  $('.row-offcanvas-left').toggleClass('active');
-});
+
+function selectInit(){
+	$(".clickable").click(function(e){
+    s = window.getSelection();
+    var range = s.getRangeAt(0);
+    var node = s.anchorNode;
+    try{
+    	while(range.toString().indexOf(' ') != 0) {                 
+        range.setStart(node,(range.startOffset -1));
+      }
+      range.setStart(node, range.startOffset +1);
+      do{
+        range.setEnd(node,range.endOffset + 1);
+
+      }while(range.toString().indexOf(' ') == -1 && range.toString().trim() != '');
+      var str = range.toString().trim();
+
+      var doc = document.getElementById('doc')
+      var text = doc.innerText.replace(/\;/g,'').replace(/\:/g,'').replace(/\=/g,' ').replace(/\-/g,' ').replace(/\./g,'').replace(/\,/g,'').replace(/\?/g, '')
+      var words = text.split(/\s+/)
+
+      var strLower = str.toLowerCase()
+
+      strLower = strLower.replace(/\;/g,'').replace(/\:/g,'').replace(/\=/g,' ').replace(/\-/g,' ').replace(/\./g,'').replace(/\,/g,'').replace(/\?/g, '')
+
+      var cnt = 0
+      console.log(strLower);
+
+      for(var i = 0; i < words.length; i++) {
+		    if(words[i].toLowerCase() == strLower) {
+		        cnt++
+		    }
+			}
+      console.log(cnt)
+      var selWord = document.getElementById('selWord')
+			var selCount = document.getElementById('selCount')
+			var syn = document.getElementById('synonyms')
+			var hiddenDiv = document.getElementById('wordMets')
+
+			selWord.innerText = strLower;
+			selCount.innerText = cnt;
+
+			hiddenDiv.removeAttribute('hidden')
+
+    }
+    catch(e){
+    	console.log('no word there')
+    }
+   
+  });
+}
 
 
+var last_known_scroll_position = 0;
+var ticking = false;
 
+function doSomething(scroll_pos) {
+  var col = document.getElementById('mets');
+  col.style.marginTop = '' + scroll_pos + 'px'
+}
 
+function scrollInit(){
+  window.addEventListener('scroll', function(e) {
+    last_known_scroll_position = window.scrollY;
+    if (!ticking) {
+      window.requestAnimationFrame(function() {
+        doSomething(last_known_scroll_position);
+        ticking = false;
+      });
+    }
+    ticking = true;
+  });
+}
