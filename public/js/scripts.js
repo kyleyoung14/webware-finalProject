@@ -292,7 +292,6 @@ function makeFreq(text){
   }
 
   var frequency_list = allWords
-  console.log(frequency_list)
 
   var color = d3.scale.linear()
 	  .domain([10,20,40,80, 100])
@@ -353,6 +352,9 @@ function makeFreqList(){
 	  oReq.open('GET', '/'+fileName, true)
 	  oReq.send()
   }
+  else{
+  	alert("You need to select a file first!")
+  }
 }
 
 
@@ -379,6 +381,6 @@ function downloadSVG(){
 	var url = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(source);
 
 	//set url value to a element's href attribute.
-	document.getElementById("link").setAttribute("onclick","window.location='"+url+"'");
+	document.getElementById("link").href = url;
 	//you can download svg file by right click menu.
 }
