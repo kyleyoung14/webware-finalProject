@@ -15,46 +15,6 @@ h1 {font-family: 'Oranienbaum', serif;
 
 h2 {color:steelblue;}
 
-.FileBar{
-    width:150px;
-    top: 0;
-    padding: 0;
-    margin-top: 110px;
-    list-style: none;
-    position: absolute;
-}
-
-.FileBar li {
-    text-indent: 20px;
-    line-height: 40px;
-}
-
-.FileBar li a {
-    display: block;
-    text-decoration: none;
-    color: #999999;
-}
-.FileBar > .sidebar-brand {
-    height: 65px;
-    font-size: 18px;
-    line-height: 60px;
-}
-
-.FileBar > .sidebar-brand a {
-    color: #999999;
-}
-
-.FileBar > .sidebar-brand a:hover {
-    color: #999999;
-    background: none;
-}
-
-.FileBar li a:hover {
-    text-decoration: none;
-    color: #fff;
-    background: #daead5;
-}
-/*End FileBar*/
 
 .PageContent{
 	margin-top: 130px;
@@ -189,7 +149,7 @@ h2 {color:steelblue;}
 }
 
 #wordMets {
-  height:150px;
+  height:200px;
   width:170px;
   background-color: #0F55B2;
   border-radius: 10px;

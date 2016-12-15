@@ -210,12 +210,31 @@ function selectInit(){
       var selWord = document.getElementById('selWord')
 			var selCount = document.getElementById('selCount')
 			var syn = document.getElementById('synonyms')
+
+
+			function reqListener(){
+				var resp = JSON.parse(this.responseText)
+
+				var topSynonyms = Object.values(resp)[0].syn
+				topSynonyms = topSynonyms.slice(0,5)
+
+				console.log(topSynonyms)
+				syn.innerText = topSynonyms.join(', ')
+			}
+
 			var hiddenDiv = document.getElementById('wordMets')
+			// var docMet = document.getElementById('docMets')
 
 			selWord.innerText = strLower;
 			selCount.innerText = cnt;
 
 			hiddenDiv.removeAttribute('hidden')
+			// docMet.setAttribute('hidden', true)
+
+			var oReq = new XMLHttpRequest();
+			oReq.addEventListener('load', reqListener);
+			oReq.open('GET', 'http://words.bighugelabs.com/api/2/1b27ae90fd3ebc09e575291d103105a4/'+strLower+'/json', true)
+			oReq.send()
 
     }
     catch(e){
@@ -245,4 +264,121 @@ function scrollInit(){
     }
     ticking = true;
   });
+}
+
+function makeFreq(text){
+  text = text.toLowerCase()
+  var newText = text.replace(/\;/g,'').replace(/\:/g,'').replace(/\=/g,' ').replace(/\-/g,' ').replace(/\./g,'').replace(/\,/g,'').replace(/\?/g, '')
+  var words = newText.split(/\s+/)
+
+  
+  var allWords = []
+
+  while(words.length != 0 && allWords.length < 250){
+    var dic = {}
+    var wd = words[0]
+    var cnt = 0
+
+    for(var i = 0; i < words.length; i++) {
+        if(words[i] == wd) {
+            cnt++
+        }
+    }
+    dic["text"] = wd;
+    dic["size"] = cnt*10;
+    allWords.push(dic)
+
+    words = words.filter(function(el){ return el !== wd });
+  }
+
+  var frequency_list = allWords
+  console.log(frequency_list)
+
+  var color = d3.scale.linear()
+	  .domain([10,20,40,80, 100])
+	  .domain([0,1,2,3,4,5,6,10,15,20,100])
+	  // .range(["blue","green","orange","red","black"]);
+	  .range(["#ddd", "#ccc", "#bbb", "#aaa", "#999", "#888", "#777", "#666", "#555", "#444", "#333", "#222"]);
+
+  d3.layout.cloud().size([800, 400])
+    .words(frequency_list)
+    .padding(1)
+    .rotate(function(d){ return 0; })
+    .text(function(d) { return d.text; }) // THE SOLUTION
+    .fontSize(function(d) { return d.size; })
+    .on("end", draw)
+    .start();
+
+  function draw(words) {
+  	document.querySelector("#vis").innerHTML = ''
+    d3.select("#vis").append("svg")
+    .attr("width", 800)
+    .attr("height", 400)
+    .attr("class", "wordcloud")
+    .attr("id", "svg")
+    .append("g")
+    // without the transform, words words would get cutoff to the left and top, they would
+    // appear outside of the SVG area
+    .attr("transform", "translate(400,200)")
+    .selectAll("text")
+    .data(words)
+    .enter().append("text")
+    .style("font-size", function(d) { return d.size + "px"; })
+    .style("fill", function(d, i) { return color(i); })
+    .attr("text-anchor", "middle")
+    .attr("transform", function(d) {
+        return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+    })
+    .text(function(d) { return d.text; });
+  }
+
+  downloadSVG()
+}
+
+
+function makeFreqList(){
+  function reqListener(){
+      makeFreq(this.responseText)
+  }
+
+  var hashedFile = location.hash
+  var fileName = hashedFile.slice(1,10)
+
+
+  // var fileName = "file4.txt"
+  if(fileName != ''){
+  	var oReq = new XMLHttpRequest()
+
+	  oReq.addEventListener('load', reqListener)
+	  oReq.open('GET', '/'+fileName, true)
+	  oReq.send()
+  }
+}
+
+
+function downloadSVG(){
+	//get svg element.
+	var svg = document.getElementById("svg");
+
+	//get svg source.
+	var serializer = new XMLSerializer();
+	var source = serializer.serializeToString(svg);
+
+	//add name spaces.
+	if(!source.match(/^<svg[^>]+xmlns="http\:\/\/www\.w3\.org\/2000\/svg"/)){
+	    source = source.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
+	}
+	if(!source.match(/^<svg[^>]+"http\:\/\/www\.w3\.org\/1999\/xlink"/)){
+	    source = source.replace(/^<svg/, '<svg xmlns:xlink="http://www.w3.org/1999/xlink"');
+	}
+
+	//add xml declaration
+	source = '<?xml version="1.0" standalone="no"?>\r\n' + source;
+
+	//convert svg source to URI data scheme.
+	var url = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(source);
+
+	//set url value to a element's href attribute.
+	document.getElementById("link").setAttribute("onclick","window.location='"+url+"'");
+	//you can download svg file by right click menu.
 }

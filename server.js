@@ -138,6 +138,15 @@ var server = http.createServer (function (req, res) {
     case '/js/bootstrap.min.js':
       sendFile(res, 'public/js/bootstrap.min.js', 'text/javascript')
       break
+    case '/js/d3.min.js':
+      sendFile(res, 'public/js/d3.min.js', 'text/javascript')
+      break
+    case '/js/cloud.min.js':
+      sendFile(res, 'public/js/cloud.min.js', 'text/javascript')
+      break
+    case '/js/d3.layout.cloud.js':
+      sendFile(res, 'public/js/d3.layout.cloud.js', 'text/javascript')
+      break
     default:
       res.end('404 not found')
   }
