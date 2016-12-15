@@ -15,39 +15,6 @@ h1 {font-family: 'Oranienbaum', serif;
 
 h2 {color:steelblue;}
 
-#wrap {
-   width:100%;
-   margin:0 auto;
-}
-#left_col {
-   float:left;
-   position: relative;
-   text-align: center;
-   width:33%;
-}
-
-#mid_col {
-	display: inline-block;
-	position: relative;
-    text-align: center;
-	width:34%;
-}
-#right_col {
-   float:right;
-   position: relative;
-   text-align: center;
-   width:33%;
-}
-
-/*side bar Formatting*/
-
-/*.content {
-  top: 0;
-  padding: 0;
-  margin-top: 110px;
-
-}*/
-
 .FileBar{
     width:150px;
     top: 0;
@@ -141,6 +108,10 @@ h2 {color:steelblue;}
 .sidebar {
   display: none;
 }
+
+#hideSide{
+  display:block;
+}
 @media (min-width: 768px) {
   .sidebar {
     position: fixed;
@@ -155,7 +126,12 @@ h2 {color:steelblue;}
     background-color: #f5f5f5;
     border-right: 1px solid #eee;
   }
+
+  #hideSide{
+    display:none;
+  }
 }
+
 
 /* Sidebar navigation */
 .nav-sidebar {
@@ -212,3 +188,4 @@ h2 {color:steelblue;}
 .mainMet {
   color:black;
 }
+

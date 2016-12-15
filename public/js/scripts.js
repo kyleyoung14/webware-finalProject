@@ -33,7 +33,6 @@ function existingFiles(){
 		
 
 		for(var i = 0; i < allImages.length; i++){
-			console.log(allImages[i].id.slice(3,4))
 			var indx = fileNums.indexOf(allImages[i].id.slice(3,4))
 			var imgNum = parseInt(allImages[i].id.slice(3,4))
 
@@ -152,6 +151,10 @@ function removeClass(el, className) {
     el.className=el.className.replace(reg, ' ')
   }
 }
+
+$('#offcanvasleft').click(function() {
+  $('.row-offcanvas-left').toggleClass('active');
+});
 
 
 
