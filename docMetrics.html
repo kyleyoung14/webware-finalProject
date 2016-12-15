@@ -63,14 +63,27 @@
 		    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		    	<h1 class="page-header">Metrics</h1>
 		    	<div class="row">
-		    		<div id="doc" class="col-xs-8"></div>
-		    		<div id="docMets" class="col-xs-2">
-		    			<span id="metLabel" class="mainMet">Document Metrics:</span><br>
-		    			<span class="mainMet">Sentence Count: </span><span id="sentCount">5000</span><br>
-		    			<span class="mainMet">Word Count: </span><span id="wordCount">80000</span><br>
-		    			<span class="mainMet">Most Common Word:</span><br>
-		    			<span id="commonWord">Bamboozled</span>
+		    		<p id="doc" class="col-xs-8 clickable"></p>
+		    		<div id="mets" class="col-xs-2">
+
+		    			<div id="docMets">
+			    			<span class="mainMet metLabel">Document Metrics:</span><br>
+			    			<span class="mainMet">Sentence Count: </span><span id="sentCount"></span><br>
+			    			<span class="mainMet">Word Count: </span><span id="wordCount"></span><br>
+			    			<span class="mainMet">Most Common Word:</span><br>
+			    			<span id="commonWord"></span>
+			    		</div>
+
+		    			<div id="wordMets" hidden>
+			    			<span class="mainMet metLabel">Word Metrics:</span><br>
+			    			<span class="mainMet">Word: </span><span id="selWord"></span><br>
+			    			<span class="mainMet">Word Count: </span><span id="selCount"></span><br>
+			    			<span class="mainMet">Synonyms:</span><br>
+			    			<span id="synonyms"></span>
+			    		</div>
+
 		    		</div>
+		    	</div>
 		    </div>
 		  </div>
 		</div>
@@ -82,17 +95,15 @@
 
 			window.addEventListener('load', displayFile)
 
-			// $(document).ready(function () {
-			//   $('[data-toggle=offcanvas]').click(function () {
-			//     if ($('.sidebar-offcanvas').css('background-color') == 'rgb(255, 255, 255)') {
-			// 	    $('.list-group-item').attr('tabindex', '-1');
-			//     } else {
-			// 	    $('.list-group-item').attr('tabindex', '');
-			//     }
-			//     $('.row-offcanvas').toggleClass('active');
-			    
-			//   });
-			// });
+			window.addEventListener('click', function(){
+				var hiddenDiv = document.getElementById('wordMets')
+
+				hiddenDiv.setAttribute('hidden', true)
+			}, true);
+
+
+			selectInit()
+			scrollInit()
 		</script>
 	</body>
 </html>
