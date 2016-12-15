@@ -64,8 +64,15 @@ h2 {color:steelblue;}
   position: absolute;
 }
 
+
+#phraseForm{
+  margin: 0 auto;
+  text-align: center;
+}
+
 #PhraseTree{
 	margin: 0 auto;
+  white-space: nowrap;
 }
 
 #PhraseTree > .root{
@@ -80,8 +87,8 @@ h2 {color:steelblue;}
 	display: inline-block;
 	text-align: center;
 	border-top: 2px solid black;
+  padding: 1px;
 	vertical-align: top;
-	padding: 10px;
 	padding-top: 0px;
 }
 .Tree > .littleLine{

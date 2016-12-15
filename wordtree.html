@@ -62,6 +62,10 @@
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		    	<h1 class="page-header">Word Tree</h1>
+			    <form id="phraseForm" onsubmit="return false;">
+	    			<input type='text' id="PhraseInput">
+	    			<input type='submit' onclick="BuildTree();">
+	  			</form>
 		    	<div id="PhraseTree">
 		    		here is some html
 		    	</div>
@@ -71,11 +75,13 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
+
 	</body>
 </html>
 
 
 <script>
+var TEXT = "";
 
 var Node = function(data,parent,children) {
 	this.data = data;
@@ -84,13 +90,27 @@ var Node = function(data,parent,children) {
 
 	Node.prototype.addChild = function(Node){
 		this.children.push(Node);
-		Node.parent.push(data);
+		Node.parent.push(this.data);
 	}
+	Node.prototype.removeParent = function(){
+		this.parent = [];
+	}
+	Node.prototype.ChildIndex = function(Node){
+		if(this.children.length == 0){
+			return -1;
+		}
+		for(var i=0; i<this.children.length;i++){
+			if(this.children[i].data == Node.data){
+				return i;
+			}
+		}
+		return -1;
+	}
+
 }
 
 var DisplayTree = function(Node){
 	var TreeDisplay = "";
-	console.log(Node.parent);
 	if(Node.parent == null){
 		TreeDisplay = "<div class=" + "root" + ">" + Node.data;
 	}
@@ -108,61 +128,96 @@ var DisplayTree = function(Node){
 	return TreeDisplay;
 }
 
-var BuildTree = function(Txt, root){
-	Txt = Txt.toUpperCase();
-	var root = new Node(root.value,null,[]);
-	var sentences = Txt.split(".")
-	console.log(sentences);
-	for(var i = 0; i < sentences.length; i++){
-		if(in sentence){
-			every word after instance is sequential subnode
+var BuildTree = function(){
+	console.log("BuildingTree");
+	var root = document.getElementById("PhraseInput").value;
+	console.log(root);
+	Txt = TEXT.toUpperCase();
+	console.log(Txt);
+	root = root.toUpperCase();
+	var tree = (new Node(root, null, []));
+	var sentences = Txt.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|");
+	for(var i=0; i < sentences.length; i++){
+		var words = sentences[i].split(" ");
+		if(words[0] == ""){
+			words.splice(0,1);
+		} 
+		console.log(words);
+		if(words.indexOf(root) != -1){
+			words.splice(0, words.indexOf(root));
+			var Phrase = MakeBranch(words);
+			if(Phrase.length > 1){
+				AddToTree(tree, Phrase);	
+			}
+			document.getElementById("PhraseTree").innerHTML = DisplayTree(tree);
 		}
+		//add to tree
 	}
-
 }
 
-var Grandma = new Node("Grandma",null, []);
-var David = new Node("David", [], []);
-	var Jen = new Node("Jen", [], []);
-	var Chris = new Node("Chris", [], []);
-	var Kara = new Node("Kara", [], []);
-	var Lauren = new Node("Lauren", [], []);
-var Donna = new Node("Donna", [], []);
-var Linda = new Node("Linda", [], []);
-	var Rebecca = new Node("Rebecca", [], []);
-	var Elizabeth = new Node("Elizabeth", [], []);
-var Sue = new Node("Sue", [], []);
-	var Matt = new Node("Matt", [], []);
-	var Brittany = new Node("Brittany", [], []);
-	var Megan = new Node("Megan", [], []);
-var Karen = new Node("Karen", [], []);
-	var Morgan = new Node("Morgan", [], []);
+var AddToTree = function(Node,NewBranch){
+	console.log("AddToTree");
+	console.log(NewBranch);
+	if(Node.ChildIndex(NewBranch[1]) == -1){
+		console.log("recursion break");
+		NewBranch[1].removeParent;
+		Node.children.push(NewBranch[1]);
+	}
+	else{
+		console.log("recursive");
+		console.log(NewBranch);
+		var test = (NewBranch.shift());
+		console.log(test);
+		AddToTree(Node.children[Node.ChildIndex(NewBranch[0])],NewBranch);
+	}
+}
 
-Grandma.addChild(David);
-	David.addChild(Jen);
-	David.addChild(Chris);
-	David.addChild(Lauren);
-	David.addChild(Kara);
-Grandma.addChild(Donna);
-Grandma.addChild(Linda);
-	Linda.addChild(Rebecca);
-	Linda.addChild(Elizabeth);
-Grandma.addChild(Sue);
-	Sue.addChild(Matt);
-	Sue.addChild(Brittany);
-	Sue.addChild(Megan);
-Grandma.addChild(Karen);
-	Karen.addChild(Morgan);
+var MakeBranch = function(array){
+	var NodeArray = [];
+	for(var i=0; i < array.length; i++){
+		if(i==0){
+			NodeArray.push( new Node(array[i],null,[]));	
+		}
+		else{
+			NodeArray.push( new Node(array[i],[],[]))
+		}
+	}
+	for(var i=0; i < NodeArray.length; i++){
+		if(i < (NodeArray.length-1)){
+			NodeArray[i].addChild(NodeArray[i+1])
+		}
+	}
+	return NodeArray;
+}
 
-var TextyText = "These are awesome words. Words with other words that follow them. There are words here and there are words here. Words with stuff and words without stuff.";
-var root = "words";
+window.addEventListener('hashchange', UpdateText);
+window.addEventListener('load', UpdateText);
 
-//document.getElementById("PhraseTree").innerHTML = DisplayTree(Grandma);
-//console.log(DisplayTree(Grandma));
+function UpdateText( event ){
+	var hashedFile = location.hash
+	var fileName = hashedFile.slice(1,10)
 
-BuildTree(TextyText, root);
+	if(hashedFile != ''){
+		function reqListener(){
+			var fileText = this.responseText
 
+			TEXT = fileText
+			BuildTree();
+		}
 
+		var oReq = new XMLHttpRequest()
 
+		oReq.addEventListener('load', reqListener)
+		oReq.open('GET', '/'+fileName, true)
+		oReq.send()
+	}
+	else{
+		doc.innerText = ''
+		doc.innerText = 'Please select a file on the left to analyze!'
+	}
+	
+}
 
 </script>
+
+
