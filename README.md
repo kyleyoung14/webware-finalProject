@@ -10,7 +10,7 @@ Page 2: WordCloud
 	The code implemented on this page was modified from https://github.com/jasondavies/d3-cloud. 
 
 Page 3: PhraseTree
-	This page takes an input string from the user and then generates a tree of all of the phrases starting with that input string which occur throughout the document. This allows the user to easily compare prominent words and their uses across multiple files.
+	This page takes an input string from the the uploaded file and then generates a tree of all of the phrases starting with that input string which occur throughout the document. The script then takes the tree and creates a displayable tree of divs in the DOM. This allows the user to easily compare prominent words and their uses across multiple files.
 
 Page 4: Document Metrics
 	This page fully renders the text and provides some key metrics on it which include word count, sentence count, and the most common word.
